@@ -37,12 +37,12 @@ public class LoginController {
         }
         User dbUser = userService.getUser(user.getUsername());
         if(dbUser != null){
-            System.out.println("=======>"+ MD5Util.inputToDb(user.getPassword(), dbUser.getDbflag()));
-            System.out.println("------->"+dbUser.getPassword());
+            System.out.println("前端输送过来的代码："+ MD5Util.inputToDb(user.getPassword(), dbUser.getDbflag()));
+            System.out.println("数据库得到的代码："+dbUser.getPassword());
             if(dbUser.getPassword().equals(MD5Util.inputToDb(user.getPassword(), dbUser.getDbflag()))){
                return "home";
             }else{
-                return "login";
+                return "error";
             }
         }else{
             return "login";

@@ -39,7 +39,9 @@ public class RegisterController {
             return new ModelAndView("register");
         }
         String salt = "hello";//加入的盐
+        System.out.println("前端加密（第一次加密）："+user.getPassword());
         String newPassword = MD5Util.backToDb(user.getPassword(), salt);
+        System.out.println("后端加密（第二次加密）:"+newPassword);
         user.setId(2021);
         user.setPassword(newPassword);
         user.setDbflag(salt);

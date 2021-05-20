@@ -48,7 +48,6 @@
             },
         },
         submitHandler: function(form) {
-            debugger;
             var salt = 'springboot';
             var newPassword = $.md5($("#password").val()+salt); //md5盐值加密
             $("#password").val(newPassword);
